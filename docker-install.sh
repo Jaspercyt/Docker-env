@@ -21,8 +21,8 @@ echo "[TASK 4] 設定 Docker 的 apt 儲存庫..."
 # 加入 Docker 官方的 GPG 密鑰：
 sudo apt-get -y update
 sudo apt-get -y install ca-certificates curl gnupg
-install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo mkdir -p /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 # 加入儲存庫到 Apt 來源：
 echo \
