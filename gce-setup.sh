@@ -90,5 +90,4 @@ if [ -f "gce-setup.sh" ]; then
 else
   echo "腳本 gce-setup.sh 不存在，無需刪除。"
 fi
-
 echo "資源刪除腳本執行完畢。"
