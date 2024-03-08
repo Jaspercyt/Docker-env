@@ -5,10 +5,7 @@ sudo timedatectl set-timezone Asia/Taipei
 echo "時區設定完成。"
 
 echo "[TASK 2] 卸載所有衝突套件..."
-for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do
-  echo "正在卸載 $pkg ..."
-  sudo apt-get remove -y $pkg
-done
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
 echo "所有衝突套件卸載完成。"
 
 echo "[TASK 3] 卸載舊版本的 Docker..."
@@ -20,17 +17,17 @@ echo "舊版本的 Docker 卸載完成。"
 echo "[TASK 4] 設定 Docker 的 apt 儲存庫..."
 # 加入 Docker 官方的 GPG 密鑰：
 sudo apt-get -y update
-sudo apt-get -y install ca-certificates curl gnupg
-sudo mkdir -p /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
-# 加入儲存庫到 Apt 來源：
+sudo apt-get -y install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+# 加入儲存庫到 apt repository：
 echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
-echo "Docker 的 apt 儲存庫設定完成。"
+echo "Docker 的 apt repository 設定完成。"
 
 echo "[TASK 5] 安裝 Docker 套件..."
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
