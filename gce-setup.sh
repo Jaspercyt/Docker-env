@@ -69,4 +69,4 @@ rm "gce-setup.sh"
 echo "gce-setup.sh 腳本執行完畢。"
 
 echo "開始安裝 Docker..."
-gcloud compute ssh $INSTANCE_NAME --zone=$ZONE_DOCKER --command="wget https://raw.githubusercontent.com/Jaspercyt/Docker-env/main/docker-install.sh && bash docker-install.sh '$USER'"
+gcloud compute ssh $INSTANCE_NAME --zone=$ZONE_DOCKER --command="wget https://raw.githubusercontent.com/Jaspercyt/Docker-env/main/docker-install.sh && bash docker-install.sh"
