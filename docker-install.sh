@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "設定時區為 Asia/Taipei..."
-timedatectl set-timezone Asia/Taipei
+sudo timedatectl set-timezone Asia/Taipei
 echo "時區設定完成。"
 
 echo "[TASK 2] 卸載所有衝突套件..."
