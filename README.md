@@ -34,11 +34,11 @@ Docker 測試環境安裝
 ![image](https://github.com/Jaspercyt/Docker-env/assets/88648972/6d637a07-48be-41a2-90af-d2ff322cb64f)
 
 ##### Step 02：下載並執行 GCP 環境建置及 Docker 安裝腳本
-在 Cloud Shell 中執行以下指令
+* 在 Cloud Shell 中執行以下指令
 ```bash
 wget https://raw.githubusercontent.com/Jaspercyt/Docker-env/main/gce-setup.sh && bash gce-setup.sh
 ```
-![image](https://github.com/Jaspercyt/Docker-env/assets/88648972/99fea27b-95e1-412f-9327-510f97ce4377)
+![image](https://github.com/Jaspercyt/Docker-env/assets/88648972/0fa8ecb5-e07e-4dbd-98f3-3c549ffccb89)
 * 執行過程中可能會出現錯誤訊息 ERROR: (gcloud.compute.start-iap-tunnel) Error while connecting [4047: 'Failed to lookup instance'] 這是正常的，因為在 VM 尚未完全啟動或在 DNS 中尚未更新，過幾分後系統更新好就沒問題了，不需要人為介入處理。
 ![image](https://github.com/Jaspercyt/Docker-env/assets/88648972/f6d82294-7a90-4083-be43-11f05829d000)
 * 名稱為 docker-lab 的虛擬機建立好了
@@ -48,21 +48,22 @@ wget https://raw.githubusercontent.com/Jaspercyt/Docker-env/main/gce-setup.sh &&
 ![image](https://github.com/Jaspercyt/Docker-env/assets/88648972/e15655e5-4a7c-4a62-ab43-2ba855467337)
 
 ##### Step 03：停止 VM Instance
-在 Cloud Shell 中執行以下指令
+* 在 Cloud Shell 中執行以下指令
 ```bash
 gcloud compute instances stop docker-lab --zone=us-west4-a
 ```
 ![image](https://github.com/Jaspercyt/Docker-env/assets/88648972/59968d93-ddfc-4ee9-a1dd-034cca95a387)
 
 ##### Step 04：重啟 VM Instance
-在 Cloud Shell 中執行以下指令
+* 在 Cloud Shell 中執行以下指令
 ```bash
 gcloud compute instances start docker-lab --zone=us-west4-a
 ```
 ![image](https://github.com/Jaspercyt/Docker-env/assets/88648972/88ef3529-786b-4638-a645-271c92da542b)
 
 ##### Step 05：清理環境，刪除 GCP 資源
-在 Cloud Shell 中執行以下指令
+* 在 Cloud Shell 中執行以下指令
 ```bash
 wget https://raw.githubusercontent.com/Jaspercyt/Docker-env/main/delete-docker-gcp-resources.sh && bash delete-docker-gcp-resources.sh
 ```
+![image](https://github.com/Jaspercyt/Docker-env/assets/88648972/3a4b1177-120f-4d40-8475-495f1491a996)
