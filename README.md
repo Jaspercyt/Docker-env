@@ -1,4 +1,4 @@
-Kubernetes 測試環境安裝
+Docker 測試環境安裝
 ===
 ###### tags:`Google Cloud` `Google Compute Engine` `Docker`
 
@@ -30,15 +30,15 @@ Kubernetes 測試環境安裝
 ## 4. 使用 Cloud Shell 部署 Kubernetes 叢集
 ### Step 01：開啟 Cloud Shell
 * 登入 [GCP console](https://console.cloud.google.com/)。
-* 在右上角工具列找到 Cloud Shell 的 icon ![image](https://github.com/Jaspercyt/Kubernetes-1.29.0/assets/88648972/39d3447e-a2d1-468d-8abf-77557d550682)，點擊後會在底部開啟 Cloud Shell session。
-* 在底部 Cloud Shell session 的工具列點擊 ![image](https://github.com/Jaspercyt/Kubernetes-1.29.0/assets/88648972/fccf6836-2e3a-4a70-a4a9-746b1c0255bb) 可以用新分頁的方式打開 Cloud Shell。或是直接在螢幕的下方使用 Cloud Shell
-
+* 在右上角工具列找到 Cloud Shell 的 icon，點擊後會在底部開啟 Cloud Shell session。
+![image](https://github.com/Jaspercyt/Docker-env/assets/88648972/6d637a07-48be-41a2-90af-d2ff322cb64f)
 
 ##### Step 02：下載並執行部署腳本
 在 Cloud Shell 中執行以下指令
 ```bash
 wget https://raw.githubusercontent.com/Jaspercyt/Docker-env/main/gce-setup.sh && bash gce-setup.sh
 ```
+![image](https://github.com/Jaspercyt/Docker-env/assets/88648972/e78d7a7b-909a-47a8-938d-1b04f1e68330)
 
 
 ##### Step 04：停止 VM Instance
