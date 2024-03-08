@@ -27,7 +27,7 @@ Docker 測試環境安裝
     └── [清理環境，刪除 GCP 資源]
 ```
 
-## 使用 Cloud Shell 部署 Kubernetes 叢集
+## 使用 Cloud Shell 建置 Docker 環境
 ### Step 01：開啟 Cloud Shell
 * 登入 [GCP console](https://console.cloud.google.com/)。
 * 在右上角工具列找到 Cloud Shell 的 icon，點擊後會在底部開啟 Cloud Shell session。
