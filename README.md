@@ -46,7 +46,7 @@ wget https://raw.githubusercontent.com/Jaspercyt/Docker-env/main/gce-setup.sh &&
 * 名稱為 docker-lab 的虛擬機建立好了
 
 ![image](https://github.com/Jaspercyt/Docker-env/assets/88648972/3981d811-36f2-4922-9c68-c8c1ed757c5d)
-* 點選 docker-lab 的 SSH，就可以進入開始使用 Docker 了
+* 點選 docker-lab 的 SSH，就可以進入 VM 開始使用 Docker 了
 
 ![image](https://github.com/Jaspercyt/Docker-env/assets/88648972/8b30672c-39bf-43aa-916f-71d66ca9a1f0)
 
