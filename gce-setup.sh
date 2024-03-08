@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "正在初始化變數......"
+echo "正在初始化變數..."
 NETWORK_DOCKER="gcp-docker-vpc"                # VPC 網路名稱
 SUBNET_DOCKER="gcp-docker-subnet"              # Subnet 名稱
 REGION_DOCKER="us-west4"                       # 指定 Region
@@ -14,13 +14,13 @@ BOOT_DISK_TYPE_DOCKER="pd-standard"            # 開機磁碟類型
 INSTANCE_NAME="docker-lab"                     # VM 名稱
 INSTANCE_IP="10.0.0.10"                        # VM 的私有 IP 地址
 
-echo "建立自定義的 VPC 網路 $NETWORK_DOCKER......"
+echo "建立自定義的 VPC 網路 $NETWORK_DOCKER..."
 gcloud compute networks create $NETWORK_DOCKER --subnet-mode=custom
 
 echo "在 VPC 網路 $NETWORK_DOCKER 內建立 Subnet $SUBNET_DOCKER，並指定範圍為 $SUBNET_RANGE_DOCKER..."
 gcloud compute networks subnets create $SUBNET_DOCKER --network=$NETWORK_DOCKER --region=$REGION_DOCKER --range=$SUBNET_RANGE_DOCKER
 
-echo "定義防火牆規則，允許 ICMP、SSH、HTTP、HTTPS 連線以及內部網路溝通......"
+echo "定義防火牆規則，允許 ICMP、SSH、HTTP、HTTPS 連線以及內部網路溝通..."
 FIREWALL_RULES=(
   "gcp-docker-vpc-allow-icmp icmp INGRESS 65534 0.0.0.0/0"
   "gcp-docker-vpc-allow-ssh tcp:22 INGRESS 65534 0.0.0.0/0"
@@ -30,7 +30,7 @@ FIREWALL_RULES=(
   "gcp-docker-vpc-allow-internal icmp,tcp,udp INGRESS 1003"
 )
 
-echo "開始建立防火牆規則......"
+echo "開始建立防火牆規則..."
 for rule in "${FIREWALL_RULES[@]}"; do
   read -r name allow direction priority source_ranges destination_ranges <<<"$rule"
   echo "建立防火牆規則：$name"
@@ -43,7 +43,7 @@ for rule in "${FIREWALL_RULES[@]}"; do
       ${destination_ranges:+--destination-ranges=$destination_ranges}
 done
 
-echo "正在建立 VM $INSTANCE_NAME......"
+echo "正在建立 VM $INSTANCE_NAME..."
 gcloud compute instances create $INSTANCE_NAME \
     --zone=$ZONE_DOCKER \
     --machine-type=$MACHINE_TYPE_DOCKER \
@@ -64,10 +64,9 @@ gcloud compute instances create $INSTANCE_NAME \
 
 echo "VM $INSTANCE_NAME 建立完成。"
 
-echo "從 Cloud Shell 中刪除腳本......"
+echo "從 Cloud Shell 中刪除腳本 gce-setup.sh..."
 rm "gce-setup.sh"
 echo "gce-setup.sh 腳本執行完畢。"
 
-echo "正在安裝 Docker......"
-gcloud compute ssh $INSTANCE_NAME --zone=$ZONE_DOCKER --command="wget https://raw.githubusercontent.com/Jaspercyt/Docker-env/main/docker-install.sh && bash docker-install.sh '$local_user'"
-echo "開始 Docker 安裝程序......"
+echo "開始安裝 Docker..."
+gcloud compute ssh $INSTANCE_NAME --zone=$ZONE_DOCKER --command="wget https://raw.githubusercontent.com/Jaspercyt/Docker-env/main/docker-install.sh && bash docker-install.sh '$USER'"
