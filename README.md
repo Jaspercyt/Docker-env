@@ -31,6 +31,7 @@ Docker 測試環境安裝
 ### Step 01：開啟 Cloud Shell
 * 登入 [GCP console](https://console.cloud.google.com/)。
 * 在右上角工具列找到 Cloud Shell 的 icon，點擊後會在底部開啟 Cloud Shell session。
+
 ![image](https://github.com/Jaspercyt/Docker-env/assets/88648972/6d637a07-48be-41a2-90af-d2ff322cb64f)
 
 ##### Step 02：下載並執行 GCP 環境建置及 Docker 安裝腳本
@@ -40,11 +41,15 @@ wget https://raw.githubusercontent.com/Jaspercyt/Docker-env/main/gce-setup.sh &&
 ```
 ![image](https://github.com/Jaspercyt/Docker-env/assets/88648972/0fa8ecb5-e07e-4dbd-98f3-3c549ffccb89)
 * 執行過程中可能會出現錯誤訊息 ERROR: (gcloud.compute.start-iap-tunnel) Error while connecting [4047: 'Failed to lookup instance'] 這是正常的，因為在 VM 尚未完全啟動或在 DNS 中尚未更新，過幾分後系統更新好就沒問題了，不需要人為介入處理。
+
 ![image](https://github.com/Jaspercyt/Docker-env/assets/88648972/f6d82294-7a90-4083-be43-11f05829d000)
 * 名稱為 docker-lab 的虛擬機建立好了
+
 ![image](https://github.com/Jaspercyt/Docker-env/assets/88648972/3981d811-36f2-4922-9c68-c8c1ed757c5d)
 * 點選 docker-lab 的 SSH，就可以進入開始使用 Docker 了
+
 ![image](https://github.com/Jaspercyt/Docker-env/assets/88648972/8b30672c-39bf-43aa-916f-71d66ca9a1f0)
+
 ![image](https://github.com/Jaspercyt/Docker-env/assets/88648972/e15655e5-4a7c-4a62-ab43-2ba855467337)
 
 ##### Step 03：停止 VM Instance
