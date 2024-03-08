@@ -81,3 +81,14 @@ echo "VM $INSTANCE_NAME 建立完成。"
 
 echo "開始透過 IAP 安裝 Docker..."
 gcloud compute ssh $INSTANCE_NAME --zone=$ZONE_DOCKER --tunnel-through-iap --command="wget https://raw.githubusercontent.com/Jaspercyt/Docker-env/main/docker-install.sh && bash docker-install.sh"
+
+# 從 Cloud Shell 中刪除腳本
+echo "檢查腳本 gce-setup.sh 是否存在..."
+if [ -f "gce-setup.sh" ]; then
+  rm "gce-setup.sh"
+  echo "腳本 gce-setup.sh 已被刪除。"
+else
+  echo "腳本 gce-setup.sh 不存在，無需刪除。"
+fi
+
+echo "資源刪除腳本執行完畢。"
